@@ -1,16 +1,35 @@
 {
-  "name": "devVideos-api",
+  "name": "api-devvideos",
   "version": "0.1.0",
   "description": "A plataform video compilation development",
   "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
+  },
   "repository": "http://www.github.com/wilderPariona/devVideos",
   "author": "wilderPariona <jhon.pariona.27@unsch.edu.pe>",
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.3",
+    "nodemon": "^2.0.3",
     "prettier": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix --cache"
   }
 }
